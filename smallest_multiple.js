@@ -8,7 +8,30 @@
  */
 module.exports = function( ceiling ) {
   // do work here
+var toDiv =[];
+for (var i = 1; i <= ceiling; i++) {
+  toDiv.push(i);
+}
 
+console.log(toDiv);
 
-  return 0;
+var startNum = ceiling * (ceiling - 1);
+console.log(startNum);
+
+var answer;
+
+function checker() {
+  for (var k = 0; k < toDiv.length; k++){
+    if (startNum % toDiv[k] !== 0){
+      startNum++;
+      return checker();
+    }
+  }
+  console.log(startNum);
+  return startNum;
+
+}
+
+checker();
+
 };
